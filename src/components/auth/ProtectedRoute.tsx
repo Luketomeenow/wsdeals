@@ -54,10 +54,7 @@ export function ProtectedRoute({ children, requireAdmin = false }: ProtectedRout
   }
 
   if (!isAuthorized) {
-    // Non-admin users get redirected to EOD portal
-    if (requireAdmin) {
-      return <Navigate to="/eod-portal" replace />;
-    }
+    // Redirect to login for all unauthorized users
     return <Navigate to="/login" replace />;
   }
 

@@ -21,10 +21,11 @@ export default function Login() {
     try {
       if (isSignUp) {
         await signUpWithEmailPassword(email, password);
-        toast({ title: "Account created", description: "Please check your email to confirm." });
+        toast({ title: "Account created", description: "Welcome to WS Deal Dash!" });
+        navigate("/");
       } else {
         await signInWithEmailPassword(email, password);
-        toast({ title: "Signed in", description: "Welcome back!" });
+        toast({ title: "Signed in", description: "Welcome to WS Deal Dash!" });
         navigate("/");
       }
     } catch (error: any) {
@@ -38,7 +39,10 @@ export default function Login() {
     <div className="min-h-screen w-full flex items-center justify-center p-6">
       <Card className="w-full max-w-sm shadow-medium">
         <CardHeader>
-          <CardTitle className="text-xl">{isSignUp ? "Create account" : "Sign in"}</CardTitle>
+          <CardTitle className="text-xl text-center">{isSignUp ? "Create account" : "Sign in"}</CardTitle>
+          <p className="text-sm text-muted-foreground text-center">
+            Demo Mode: Use any email and password "password"
+          </p>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">

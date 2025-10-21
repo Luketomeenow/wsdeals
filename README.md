@@ -1,10 +1,10 @@
-# StafflyHub
+# WS Deal Dash
 
 ## Project info
 
-This repository contains the StafflyHub CRM and call analytics app.
+This repository contains the WS Deal Dash luxury CRM and deal management system.
 
-**Built by Staffly** - Professional CRM solution for managing deals, contacts, companies, and call tracking with advanced analytics and pipeline management.
+**WS Deal Dash** - Premium CRM solution for managing deals, contacts, companies, and call tracking with advanced analytics and luxury pipeline management.
 
 ## How can I edit this code?
 

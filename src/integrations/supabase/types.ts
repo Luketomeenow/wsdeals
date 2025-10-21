@@ -239,6 +239,7 @@ export type Database = {
           country: string | null
           created_at: string | null
           description: string | null
+          email: string | null
           employees_count: number | null
           id: string
           industry: string | null
@@ -258,6 +259,7 @@ export type Database = {
           country?: string | null
           created_at?: string | null
           description?: string | null
+          email?: string | null
           employees_count?: number | null
           id?: string
           industry?: string | null
@@ -277,6 +279,7 @@ export type Database = {
           country?: string | null
           created_at?: string | null
           description?: string | null
+          email?: string | null
           employees_count?: number | null
           id?: string
           industry?: string | null

@@ -1,25 +1,26 @@
-import { supabase } from "@/integrations/supabase/client";
+import { mockAuth } from "@/services/mockServices";
 
 export async function signInWithEmailPassword(email: string, password: string) {
-  const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  const { data, error } = await mockAuth.signInWithPassword({ email, password });
   if (error) throw error;
   return data;
 }
 
 export async function signUpWithEmailPassword(email: string, password: string) {
-  const { data, error } = await supabase.auth.signUp({ email, password });
+  // For mock purposes, just sign in with the provided credentials
+  const { data, error } = await mockAuth.signInWithPassword({ email, password });
   if (error) throw error;
   return data;
 }
 
 export async function signOut() {
-  const { error } = await supabase.auth.signOut();
+  const { error } = await mockAuth.signOut();
   if (error) throw error;
 }
 
 export async function getCurrentSession() {
-  const { data } = await supabase.auth.getSession();
-  return data.session;
+  const { data } = await mockAuth.getUser();
+  return { session: data.user ? { user: data.user } : null };
 }
 
 

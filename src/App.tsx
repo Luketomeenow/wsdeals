@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import { queryClient } from "@/lib/queryClient";
@@ -46,25 +46,25 @@ const App = () => (
         <Layout>
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
-              {/* Admin-only CRM routes */}
-              <Route path="/" element={<ProtectedRoute requireAdmin><Dashboard /></ProtectedRoute>} />
-              <Route path="/deals" element={<ProtectedRoute requireAdmin><Deals /></ProtectedRoute>} />
-              <Route path="/deals/:id" element={<ProtectedRoute requireAdmin><DealDetail /></ProtectedRoute>} />
-              <Route path="/contacts" element={<ProtectedRoute requireAdmin><Contacts /></ProtectedRoute>} />
-              <Route path="/companies" element={<ProtectedRoute requireAdmin><Companies /></ProtectedRoute>} />
-              <Route path="/calls" element={<ProtectedRoute requireAdmin><Calls /></ProtectedRoute>} />
-              <Route path="/reports" element={<ProtectedRoute requireAdmin><Reports /></ProtectedRoute>} />
-              <Route path="/calendar" element={<ProtectedRoute requireAdmin><Calendar /></ProtectedRoute>} />
-              <Route path="/tasks" element={<ProtectedRoute requireAdmin><Tasks /></ProtectedRoute>} />
+              {/* Main CRM routes - accessible to all authenticated users */}
+              <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              <Route path="/deals" element={<ProtectedRoute><Deals /></ProtectedRoute>} />
+              <Route path="/deals/:id" element={<ProtectedRoute><DealDetail /></ProtectedRoute>} />
+              <Route path="/contacts" element={<ProtectedRoute><Contacts /></ProtectedRoute>} />
+              <Route path="/companies" element={<ProtectedRoute><Companies /></ProtectedRoute>} />
+              <Route path="/calls" element={<ProtectedRoute><Calls /></ProtectedRoute>} />
+              <Route path="/reports" element={<ProtectedRoute><Reports /></ProtectedRoute>} />
+              <Route path="/calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
+              <Route path="/tasks" element={<ProtectedRoute><Tasks /></ProtectedRoute>} />
               <Route path="/admin" element={<ProtectedRoute requireAdmin><Admin /></ProtectedRoute>} />
-              <Route path="/jobs" element={<ProtectedRoute requireAdmin><JobPostings /></ProtectedRoute>} />
-              <Route path="/eod-dashboard" element={<ProtectedRoute requireAdmin><EODDashboard /></ProtectedRoute>} />
-              <Route path="/settings" element={<ProtectedRoute requireAdmin><Settings /></ProtectedRoute>} />
-              <Route path="/oauth/dialpad/callback" element={<ProtectedRoute requireAdmin><OAuthDialpadCallback /></ProtectedRoute>} />
+              <Route path="/jobs" element={<ProtectedRoute><JobPostings /></ProtectedRoute>} />
+              <Route path="/eod-dashboard" element={<ProtectedRoute><EODDashboard /></ProtectedRoute>} />
+              <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+              <Route path="/oauth/dialpad/callback" element={<ProtectedRoute><OAuthDialpadCallback /></ProtectedRoute>} />
               
               {/* Public and EOD routes */}
-              <Route path="/eod-login" element={<EODLogin />} />
-              <Route path="/eod-portal" element={<EODPortal />} />
+              <Route path="/eod-login" element={<Navigate to="/" replace />} />
+              <Route path="/eod-portal" element={<Navigate to="/" replace />} />
               <Route path="/jobpostings" element={<JobPostingsLanding />} />
               <Route path="/login" element={<Login />} />
               

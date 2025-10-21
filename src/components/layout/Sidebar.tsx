@@ -28,12 +28,17 @@ export function Sidebar() {
     <div className="flex h-full w-64 flex-col bg-card border-r border-border shadow-medium">
       <div className="flex h-16 items-center justify-center border-b border-border bg-gradient-secondary">
         <div className="flex items-center space-x-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary shadow-glow">
-            <Target className="h-5 w-5 text-white" />
+          <img 
+            src="/src/image/wslogo.png" 
+            alt="WS Deal Dash Logo" 
+            className="h-8 w-8"
+          />
+          <div className="flex flex-col">
+            <span className="text-xl font-bold text-primary">
+              WS Deal Dash
+            </span>
+            <span className="text-xs text-muted-foreground">Luxury CRM</span>
           </div>
-          <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            StafflyHub
-          </span>
         </div>
       </div>
       

@@ -50,7 +50,21 @@ export function Header() {
 
   return (
     <div className="flex h-16 items-center justify-between border-b border-border bg-card px-6">
-      <div className="flex items-center flex-1 max-w-md">
+      <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2">
+          <img 
+            src="/src/image/wslogo.png" 
+            alt="WS Deal Dash Logo" 
+            className="h-8 w-8"
+          />
+          <div className="flex flex-col">
+            <h1 className="text-xl font-bold text-primary">WS Deal Dash</h1>
+            <p className="text-xs text-muted-foreground">Luxury CRM</p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="flex items-center flex-1 max-w-md mx-8">
         <Search className="h-4 w-4 text-muted-foreground mr-2" />
         <Input
           placeholder="Search deals, contacts, companies..."
