@@ -1,0 +1,22 @@
+project_id = "qzxuhefnyskdtdfrcrtg"
+
+[functions.dialpad-sync]
+verify_jwt = true
+
+[functions.dialpad-webhook]
+verify_jwt = false
+
+[functions.dialpad-make-call]
+verify_jwt = true
+
+[functions.dialpad-send-sms]
+verify_jwt = true
+
+[functions.dialpad-analyze-call]
+verify_jwt = true
+
+[functions.dialpad-summarize-call]
+verify_jwt = true
+
+[functions.bulk-import-excel]
+verify_jwt = true
